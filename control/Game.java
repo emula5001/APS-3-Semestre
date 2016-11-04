@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 public class Game extends JFrame implements KeyListener{
 	Fila fila = new Fila();
 	JLabel texto = new JLabel("Nice");
+	private int x= 100;
+	private int y= 100;
 	
 	public boolean init(){
 		JFrame.setDefaultLookAndFeelDecorated(true);
@@ -19,7 +21,7 @@ public class Game extends JFrame implements KeyListener{
     	this.setFocusable(true);
     	this.addKeyListener(this);
     	
-		texto.setBounds(100, 100, 100, 100);
+		texto.setBounds(100, 100, x, y);
 		this.add(texto);
 		
     	return true;
@@ -28,9 +30,24 @@ public class Game extends JFrame implements KeyListener{
 	public void update(){}
 
 	public void keyPressed(KeyEvent arg0) {
-		if(arg0.getKeyCode() == KeyEvent.VK_0)
+		if(arg0.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			texto.setText("Legal");
+			texto.setLocation(x--, y);
+		}
+		
+		if(arg0.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			texto.setLocation(x++, y);
+		}
+		
+		if(arg0.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			texto.setLocation(x, y++);
+		}
+		
+		if(arg0.getKeyCode() == KeyEvent.VK_UP)
+		{
+			texto.setLocation(x, y--);
 		}
 	}
 
