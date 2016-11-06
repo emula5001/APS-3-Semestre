@@ -2,8 +2,10 @@ package modelo;
 
 public abstract class Sujeira extends Cenario {
 	private int ponto;
+	
 	public Sujeira(){
 		setTang(false);
+		setTipo("Lixo");
 		// setSprite(); ?????????????
 		
 	}
