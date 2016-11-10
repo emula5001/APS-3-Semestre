@@ -6,13 +6,12 @@ public class main {
 	
 	
 	public static void main(String[] args) {
-		Game game = new Game();
-		game.init();
+		View view = new View();
+		view.init();
 		
 		while(true)
 		{
-			game.process();
-			game.update();
+			view.update();
 		}
 
 	}

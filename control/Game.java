@@ -3,27 +3,26 @@ package control;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import modelo.Existencia;
 import modelo.Mobs;
 
 public class Game extends JFrame implements KeyListener{
-	Fila fila = new Fila();
-	JLabel texto = new JLabel("Nice");
-	private int x= 100;
-	private int y= 100;
-	Mobs[] mob = new Mobs[2];
+	Existencia[] mob = new Existencia[2];
 	Mobs player1 = new Mobs();
 	Mobs player2 = new Mobs();
+	
+	JLabel frame = new JLabel("Frame:");
+	private int qtde = 0;
 	
 	
 	public boolean init(){
 		JFrame.setDefaultLookAndFeelDecorated(true);
     	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	this.setBounds(100, 100, 640, 480);
+    	this.setBounds(100, 100, 640,480);
     	this.setTitle("APS");
     	this.setVisible(true);
     	this.setFocusable(true);
@@ -32,8 +31,9 @@ public class Game extends JFrame implements KeyListener{
 		player1.setNome("player1");
 		player1.setX(100);
 		player1.setY(100);
+		player1.setSize(149, 69);
 		player1.setText("Nice");
-		player1.setIcon(new ImageIcon("giphy.gif"));
+		player1.setIcon(new ImageIcon(".Sem título.png"));
 		player1.setVelocidade(15);
 		mob[0] = player1;
 		this.add(player1);
@@ -41,19 +41,25 @@ public class Game extends JFrame implements KeyListener{
 		player2.setNome("player2");
 		player2.setX(200);
 		player2.setY(200);
+		player2.setSize(149, 69);
 		player2.setText("Nice2");
+		player2.setVelocidade(15);
 		mob[1] = player2;
-		//this.add(player2);
+		this.add(mob[1]);
+		
+		frame.setBounds(600, 400, 40, 40);
+		this.add(frame);
 		
     	return true;
 	}
 	public void process(){}
 	public void update(){
-		for(int i=0;i<1;i++)
+		for(int i=0;i<=1;i++)
 		{
 			if(mob[i] != null)
 				mob[i].setLocation(mob[i].getX(),mob[i].getY());
 		}
+		//frame.setText("Frame: "+qtde++);
 	}
 
 	public void keyPressed(KeyEvent arg0) {
@@ -79,22 +85,22 @@ public class Game extends JFrame implements KeyListener{
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_A)
 		{
-			player2.setX(player2.getX() -1);
+			player2.setX(player2.getX() -player2.getVelocidade());
 		}
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_D)
 		{
-			player2.setX(player2.getX() +1);
+			player2.setX(player2.getX() +player2.getVelocidade());
 		}
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_S)
 		{
-			player2.setY(player2.getY() +1);
+			player2.setY(player2.getY() +player2.getVelocidade());
 		}
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_W)
 		{
-			player2.setY(player2.getY() -1);
+			player2.setY(player2.getY() -player2.getVelocidade());
 		}
 	}
 
