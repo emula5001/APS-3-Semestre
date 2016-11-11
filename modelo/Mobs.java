@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 
 public class Mobs extends Existencia{
 	
+
 	private Items item;
 	private int velocidade;
 	private int ultimocomando;

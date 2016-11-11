@@ -1,7 +1,7 @@
 package modelo;
 
 public abstract class Cenario extends Existencia{
-	 // Nome do cenario
+	// Nome do cenario
 	private int id; // Codigo de identifica�ao do cenario
 	private boolean tang;
 	private String tipo;
