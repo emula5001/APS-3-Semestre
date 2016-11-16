@@ -32,7 +32,7 @@ public class View extends JFrame implements KeyListener{
 	public boolean init(){
 		JFrame.setDefaultLookAndFeelDecorated(true);
     	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	this.setBounds(100, 100, 1000,1000);
+    	this.setBounds(100, 100, 640,480);
     	this.setTitle("APS");
     	this.setVisible(true);
     	this.setFocusable(true);
