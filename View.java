@@ -23,6 +23,9 @@ public class View extends JFrame implements KeyListener{
 	private int cenarioqtde = 0;
 	private int sujeiraqtde = 0;
 	
+	private boolean fullscreen=false;
+	private boolean maximized=false;
+	
 	JLabel frame = new JLabel("Frame:");
 	private int qtde = 0;
 	
@@ -32,7 +35,19 @@ public class View extends JFrame implements KeyListener{
 	public boolean init(){
 		JFrame.setDefaultLookAndFeelDecorated(true);
     	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	this.setBounds(100, 100, 640,480);
+    	if(fullscreen == true)
+    	{
+    		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    		this.setUndecorated(true);
+    	}
+    	if(maximized == true)
+    	{
+    		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    	}
+    	else
+    	{
+    		this.setBounds(100, 100, 640,480);
+    	}
     	this.setTitle("APS");
     	this.setVisible(true);
     	this.setFocusable(true);
@@ -154,8 +169,8 @@ public class View extends JFrame implements KeyListener{
 				{
 					if(cenario[x] != null && cenario[x].isTang())
 					{
-						if(mob[i].getX() >= cenario[x].getX() && mob[i].getX() <= cenario[x].getX()+cenario[x].getWidth() &&
-								mob[i].getY() >= cenario[x].getY() && mob[i].getY() <= cenario[x].getY()+cenario[x].getHeight())
+						if(mob[i].getX()+mob[i].getWidth()/2 >= cenario[x].getX() && mob[i].getX()+mob[i].getWidth()/2 <= cenario[x].getX()+cenario[x].getWidth() &&
+								mob[i].getY()+mob[i].getHeight()/2 >= cenario[x].getY() && mob[i].getY()+mob[i].getHeight()/2 <= cenario[x].getY()+cenario[x].getHeight())
 						{
 							if(mob[i].getUltimocomando() == KeyEvent.VK_LEFT)
 							{
@@ -191,11 +206,12 @@ public class View extends JFrame implements KeyListener{
 				{
 					if(sujeira[y] != null)
 					{
-						if(mob[i].getX() >= sujeira[y].getX() && mob[i].getX() <= sujeira[y].getX()+sujeira[y].getWidth() &&
-								mob[i].getY() >= sujeira[y].getY() && mob[i].getY() <= sujeira[y].getY()+sujeira[y].getHeight())
+						if(mob[i].getX()+mob[i].getWidth()/2 >= sujeira[y].getX() && mob[i].getX()+mob[i].getWidth()/2 <= sujeira[y].getX()+sujeira[y].getWidth() &&
+								mob[i].getY()+mob[i].getHeight()/2 >= sujeira[y].getY() && mob[i].getY()+mob[i].getHeight()/2 <= sujeira[y].getY()+sujeira[y].getHeight())
 						{
 							pontos = pontos + sujeira[y].getPonto();
 							Lpontos.setText("Ponto: "+pontos);
+							sujeira[y].setIcon(null);
 							sujeira[y].setText(null);
 							sujeira[y] = null;
 						}
@@ -224,6 +240,24 @@ public class View extends JFrame implements KeyListener{
 	{
 		this.mob[vetorqtde++] = mob;
 	}
+
+	public boolean isFullscreen() {
+		return fullscreen;
+	}
+
+	public void setFullscreen(boolean fullscreen) {
+		this.fullscreen = fullscreen;
+	}
+
+	public boolean isMaximized() {
+		return maximized;
+	}
+
+	public void setMaximized(boolean maximized) {
+		this.maximized = maximized;
+	}
+	
+	
 
 	
 }

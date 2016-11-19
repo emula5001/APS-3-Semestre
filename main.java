@@ -9,6 +9,8 @@ public class main {
 		
 		
 		View view = new View();
+		view.setFullscreen(true);
+		
 		Mobs player1 = new Mobs();
 		player1.setX(10);
 		player1.setY(10);
@@ -21,8 +23,9 @@ public class main {
 		Parede_de_Pedra pedra = new Parede_de_Pedra();
 		pedra.setX(100);
 		pedra.setY(100);
-		pedra.setSize2(10,10);
+		pedra.setSize2(100,100);
 		pedra.setText("pedra2");
+		pedra.setImage("C:/Users/rodrigo casellato/workspace/APS/src/giphy.gif");
 		pedra.setTang(true);
 		view.addCenario(pedra);
 		
@@ -40,6 +43,7 @@ public class main {
 		o.setSize2(50, 50);
 		o.setText("sujeira");
 		o.setTang(false);
+		o.setImage("C:/Users/rodrigo casellato/workspace/APS/src/giphy.gif");
 		view.addSujeira(o);
 		
 		
