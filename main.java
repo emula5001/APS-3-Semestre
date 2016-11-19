@@ -6,12 +6,15 @@ public class main {
 	
 	
 	public static void main(String[] args) {
+		
+		
 		View view = new View();
 		Mobs player1 = new Mobs();
 		player1.setX(10);
 		player1.setY(10);
 		player1.setSize2(20,20);
 		player1.setText("Nice");
+		player1.setImage("C:/Users/rodrigo casellato/workspace/APS/src/giphy.gif");
 		player1.setVelocidade(10);
 		view.addPlayer(player1);
 		
