@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -34,6 +35,7 @@ public class View extends JFrame implements KeyListener{
 	
 	public boolean init(){
 		JFrame.setDefaultLookAndFeelDecorated(true);
+		getContentPane().setBackground(Color.LIGHT_GRAY);
     	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	if(fullscreen == true)
     	{
@@ -46,15 +48,15 @@ public class View extends JFrame implements KeyListener{
     	}
     	else
     	{
-    		this.setBounds(100, 100, 640,480);
+    		this.setBounds(100, 100, 845, 640);
     	}
     	this.setTitle("APS");
     	this.setVisible(true);
     	this.setFocusable(true);
     	this.addKeyListener(this);
 		
-		frame.setBounds(600, 400, 40, 40);
-		Lpontos.setBounds(500,300,200,200);
+		//frame.setBounds(1, 1, 40, 40);
+		Lpontos.setBounds(1,1,200,200);
 		this.add(frame);
 		this.add(Lpontos);
 		
