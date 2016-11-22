@@ -1,7 +1,11 @@
-import java.io.File;
 import java.io.IOException;
 
-import modelo.*;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import modelo.Mobs;
+import modelo.Organico;
+import modelo.Parede_de_Pedra;
 
 
 public class main {
@@ -12,6 +16,15 @@ public class main {
 		
 		String caminho = "C:/Users/Ghost/workspace/APS/src/garbage/";
 		View view = new View();
+		
+		JFileChooser dialogo = new JFileChooser();
+		dialogo.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		//dialogo.setFileFilter(new FileNameExtensionFilter("Image files", "jpg", "jpeg", "gif", "png"));
+		dialogo.showOpenDialog(view);
+		
+		caminho = dialogo.getSelectedFile().getPath()+"/";
+		System.out.println(caminho);
+		
 		//view.setMaximized(true);
 		Mobs player1 = new Mobs();
 		player1.setX(130);

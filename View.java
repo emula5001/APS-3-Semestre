@@ -16,6 +16,8 @@ import modelo.Sujeira;
 
 public class View extends JFrame implements KeyListener{
 	
+	
+	
 	private Mobs[] mob = new Mobs[200];
 	private Cenario[] cenario = new Cenario[200];
 	private Sujeira[] sujeira = new Sujeira[200];
