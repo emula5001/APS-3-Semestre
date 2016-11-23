@@ -26,6 +26,8 @@ public class View extends JFrame implements KeyListener{
 	private int cenarioqtde = 0;
 	private int sujeiraqtde = 0;
 	
+	private int fimdojogo=0;
+	
 	private boolean fullscreen=false;
 	private boolean maximized=false;
 	
@@ -58,7 +60,7 @@ public class View extends JFrame implements KeyListener{
     	this.addKeyListener(this);
 		
 		//frame.setBounds(1, 1, 40, 40);
-		Lpontos.setBounds(1,1,200,200);
+		Lpontos.setBounds(0,0,200,200);
 		this.add(frame);
 		this.add(Lpontos);
 		
@@ -213,15 +215,26 @@ public class View extends JFrame implements KeyListener{
 						if(mob[i].getX()+mob[i].getWidth()/2 >= sujeira[y].getX() && mob[i].getX()+mob[i].getWidth()/2 <= sujeira[y].getX()+sujeira[y].getWidth() &&
 								mob[i].getY()+mob[i].getHeight()/2 >= sujeira[y].getY() && mob[i].getY()+mob[i].getHeight()/2 <= sujeira[y].getY()+sujeira[y].getHeight())
 						{
-							pontos = pontos + sujeira[y].getPonto();
-							Lpontos.setText("Ponto: "+pontos);
+							mob[i].setPontos(mob[i].getPontos()+sujeira[y].getPonto());
+							Lpontos.setText("Player1: "+mob[0].getPontos()+"\n"+ " Player2: "+mob[1].getPontos());
 							sujeira[y].setIcon(null);
 							sujeira[y].setText(null);
 							sujeira[y] = null;
+							sujeiraqtde--;
 						}
 					}
 				}
 			}
+		}
+		if(sujeiraqtde == 0)
+		{
+			if(mob[0].getPontos() > mob[1].getPontos())
+				JOptionPane.showMessageDialog(null, "O jogo acabou: \n Ganhador player1");
+			else if(mob[1].getPontos() > mob[0].getPontos())
+				JOptionPane.showMessageDialog(null, "O jogo acabou: \n Ganhador player2");
+			else
+				JOptionPane.showMessageDialog(null, "O jogo acabou: Empatou");
+			System.exit(0);
 		}
 		//frame.setText("Frame: "+qtde++);
 	}

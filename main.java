@@ -30,9 +30,17 @@ public class main {
 		player1.setX(130);
 		player1.setY(120);
 		player1.setSize2(10,10);
-		player1.setImage("C:/Users/Ghost/Desktop/APS-3-Semestre-Teste/giphy.gif");
+		player1.setImage(caminho+"giphy.gif");
 		player1.setVelocidade(10);
 		view.addPlayer(player1);
+		
+		Mobs player2 = new Mobs();
+		player2.setX(140);
+		player2.setY(130);
+		player2.setSize2(10,10);
+		player2.setImage(caminho+"giphy.gif");
+		player2.setVelocidade(10);
+		view.addPlayer(player2);
 		
 		Parede_de_Pedra pedra = new Parede_de_Pedra();
 		pedra.setX(100);
