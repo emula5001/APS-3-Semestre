@@ -10,7 +10,6 @@ public class Mobs extends Existencia{
 	private int velocidade;
 	private int ultimocomando;
 	private int pontos;
-	private int delay;
 	
 	public int getVelocidade() {
 		return velocidade;
@@ -38,14 +37,6 @@ public class Mobs extends Existencia{
 
 	public void setPontos(int pontos) {
 		this.pontos = pontos;
-	}
-
-	public int getDelay() {
-		return delay;
-	}
-
-	public void setDelay(int delay) {
-		this.delay = delay;
 	}
 	
 	
