@@ -102,6 +102,10 @@ public class View extends JFrame implements KeyListener{
 	}
 	
 	public void keyPressed(KeyEvent arg0) {
+		
+	}
+
+	public void keyReleased(KeyEvent arg0) {
 		if(arg0.getKeyCode() == KeyEvent.VK_LEFT)
 		{
 			mob[0].setX(mob[0].getX() -mob[0].getVelocidade());
@@ -149,10 +153,6 @@ public class View extends JFrame implements KeyListener{
 			mob[1].setY(mob[1].getY() -mob[1].getVelocidade());
 			mob[1].setUltimocomando(KeyEvent.VK_UP);
 		}
-	}
-
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
